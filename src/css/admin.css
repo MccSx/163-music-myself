@@ -1,0 +1,9 @@
+body{width: 100vw; height: 100vh; background: #444A48; display: flex; justify-content: center; align-items: center;}
+.page{width: 70%; height: 70%; border-radius: 10px; box-shadow: 0 0 10px #ccc;}
+.page .header{height: 10%; background: #66CAC4; border-top-left-radius: 10px; border-top-right-radius: 10px; padding-left: 40px; 
+  display: flex; align-items: center;}
+svg{height: 40px;}
+
+main{display: flex; flex-direction: row; height: 90%;}
+main .songList{width: 20%; height: 100%; background: #667170; border-bottom-left-radius: 10px;}
+main .songMessage{width: 80%; height: 100%; background: #E9EFEF; border-bottom-right-radius: 10px;}
