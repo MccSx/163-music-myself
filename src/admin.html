@@ -14,14 +14,46 @@
       </div>
     </div>
     <main>
-      <div class="songList"></div>
+      <div class="songList-wrapper">
+        <h2>歌曲列表</h2>
+        <ul class="songList">
+          <li class="active">歌手1-歌名1</li>
+          <li>歌手2-歌名3</li>
+          <li>歌手3-歌名3</li>
+        </ul>
+        <div class="newSong">新建歌曲</div>
+      </div>
       <div class="songMessage">
-        <div id="container">
+        <div class="upload-wrapper" id="container">
+          <div class="upload-content">
+            <span>退拽到这里上传</span><br>
+            <span>文件大小不能超过40Mb</span>
+          </div>
+          <span>或者</span>
           <button id="pickfiles">点击上传</button>
         </div>
+        <div class="title">
+          <h2>新建歌曲</h2>
+          <h2 class="hide">修改歌曲</h2>
+        </div>
+        <form class="form-wrapper" action="">
+          <div class="image">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-yinyue"></use>
+            </svg>
+            <div class="describe">COVER UPLOAD</div>
+          </div>
+          <div class="songDes">
+            <label for="">歌名<input type="text" name="name"></label>
+            <label for="">歌手<input type="text" name="singer"></label>
+            <label for="">外链<input type="text" name="songUrl"></label>
+          </div>
+          <textarea name="lyric" id="" cols="30" rows="10" placeholder="歌词"></textarea>
+        </form>
       </div>
     </main>
   </div>
+  <script src="//at.alicdn.com/t/font_673848_e0oqd6zqlz2p4x6r.js"></script>
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
   <script src="../vendors/moxie.min.js"></script>
@@ -48,6 +80,7 @@
           },
           'BeforeUpload': function(up, file) {
                 // 每个文件上传前，处理相关的事情
+                console.log(1)
           },
           'UploadProgress': function(up, file) {
                 // 每个文件上传时，处理相关的事情

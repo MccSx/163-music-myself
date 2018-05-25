@@ -1,9 +1,61 @@
-body{width: 100vw; height: 100vh; background: #444A48; display: flex; justify-content: center; align-items: center;}
-.page{width: 70%; height: 70%; border-radius: 10px; box-shadow: 0 0 10px #ccc;}
-.page .header{height: 10%; background: #66CAC4; border-top-left-radius: 10px; border-top-right-radius: 10px; padding-left: 40px; 
+body{
+  width: 100vw; height: 100vh; background: #444A48; display: flex; justify-content: center; align-items: center;}
+.page{
+  width: 70%; height: 70%; border-radius: 10px; box-shadow: 0 0 10px #ccc;}
+.page .header{
+  height: 10%; background: #66CAC4; border-top-left-radius: 10px; border-top-right-radius: 10px; padding-left: 40px; 
   display: flex; align-items: center;}
-svg{height: 40px;}
+svg{
+  height: 40px;}
 
-main{display: flex; flex-direction: row; height: 90%;}
-main .songList{width: 20%; height: 100%; background: #667170; border-bottom-left-radius: 10px;}
-main .songMessage{width: 80%; height: 100%; background: #E9EFEF; border-bottom-right-radius: 10px;}
+main{
+  display: flex; flex-direction: row; height: 90%;}
+main .songList-wrapper{
+  width: 20%; height: 100%; background: #667170; border-bottom-left-radius: 10px; display: flex; flex-direction: column; color: #B3B8B8;}
+main .songList-wrapper .songList{
+  flex-grow: 1;}
+main .songList-wrapper .newSong{
+  height: 10%; border-top: 1px solid #4C5453; display: flex; justify-content: center; align-items: center; font-weight: 700; 
+  border-bottom-left-radius: 10px; cursor: pointer;}
+main .songList-wrapper .newSong.active{
+  background: #4C5453;}
+main .songList-wrapper h2{
+  text-align: center; margin-bottom: 20px; font-weight: 700; font-size: 20px;}
+main .songList-wrapper ul>li{
+  padding: 5px; border-bottom: 1px solid #4C5453; cursor: pointer;}
+main .songList-wrapper ul>li.active{
+  background: #4C5453;}
+
+main .songMessage{
+  width: 80%; height: 100%; background: #E9EFEF; border-bottom-right-radius: 10px;}
+main .songMessage .upload-wrapper {
+  width: 80%; height: 30%; border: 2px dashed #667170; margin: 40px auto; border-radius: 10px; display: flex; 
+  flex-direction: row; justify-content: center; align-items: center;}
+main .songMessage .upload-wrapper .upload-content {
+  text-align: center;}
+main .songMessage .upload-wrapper>span {
+  margin: 0 20%; display: block;}
+main .songMessage .upload-wrapper>button {
+  background: #66CAC4; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer; box-shadow: 0 0 5px #444A48;}
+main .songMessage .upload-wrapper>button:hover {
+  box-shadow: 0px 4px 13px 0px #444A48;}
+
+main .title{
+  margin-left: 4vw; margin-bottom: 20px; margin-top: 50px;}
+main .title h2.hide{display: none;}
+
+main .form-wrapper {
+  border: 1px soldi red; display: flex; flex-direction: row; margin-left: 4vw;}
+main .form-wrapper .image {
+  width: 20%; height: 0; padding-bottom: 20%; background: #A8D1DA; border-radius: 10px; position: relative;}
+main .form-wrapper .image svg {
+  width: 6vw; height: 6vw; fill: white; display: block; position: absolute; left: 50%; top: 50%; margin-left: -3vw; margin-top: -3vw;}
+main .form-wrapper .image>.describe{
+  position: absolute; bottom: 0; width: 100%; height: 20%; background: black; opacity: 0.5; color: white; font-weight: 700; 
+  text-align: center; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;}
+main .form-wrapper .songDes {
+  display: flex; flex-direction: column; margin: 0 15px; width: 40%;}
+main .form-wrapper textarea{
+    border: none; border-radius: 3px; height: 10vw; width: 15vw; box-shadow: 0 0 5px #DADFDF;}
+main .form-wrapper .songDes input{
+  height: 2.4vw; margin-bottom: 8%; border: none; box-shadow: 0 0 5px #DADFDF; width: 85%;}
