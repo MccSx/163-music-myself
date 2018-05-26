@@ -45,7 +45,9 @@ main .title{
 main .title h2.hide{display: none;}
 
 main .form-wrapper {
-  border: 1px soldi red; display: flex; flex-direction: row; margin-left: 4vw;}
+  margin-left: 4vw; position: relative;}
+main .form-wrapper .form {
+  display: flex; flex-direction: row;}
 main .form-wrapper .image {
   width: 20%; height: 0; padding-bottom: 20%; background: #A8D1DA; border-radius: 10px; position: relative;}
 main .form-wrapper .image svg {
@@ -58,4 +60,9 @@ main .form-wrapper .songDes {
 main .form-wrapper textarea{
     border: none; border-radius: 3px; height: 10vw; width: 15vw; box-shadow: 0 0 5px #DADFDF;}
 main .form-wrapper .songDes input{
-  height: 2.4vw; margin-bottom: 8%; border: none; box-shadow: 0 0 5px #DADFDF; width: 85%;}
+  height: 2vw; margin-bottom: 4%; border: none; box-shadow: 0 0 5px #DADFDF; width: 85%;}
+main .form-wrapper button{
+  background: #66CAC4; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer; box-shadow: 0 0 5px #444A48; 
+  position: absolute; left: 50%; margin-left: -20px;}
+main .form-wrapper button:hover {
+  box-shadow: 0px 4px 13px 0px #444A48;}

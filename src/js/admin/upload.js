@@ -55,7 +55,12 @@
             let response = JSON.parse(info.response)
             let key = encodeURIComponent(response.key)
             let sourceLink = `http://${domain}/${key}`
-            console.log(sourceLink)
+            let data = {
+              name: response.key,
+              songUrl: sourceLink
+            }
+            window.eventHub.trigger('upload', data)
+            window.eventHub.trigger('newSongActive', true)
           },
           'Error': function(up, err, errTip) {
                 //上传出错时，处理相关的事情

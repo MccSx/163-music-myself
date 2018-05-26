@@ -21,7 +21,7 @@
           <li>歌手2-歌名3</li>
           <li>歌手3-歌名3</li>
         </ul>
-        <div class="newSong">新建歌曲</div>
+        <div class="newSong active"></div>
       </div>
       <div class="songMessage">
         <div class="upload-wrapper" id="container">
@@ -31,18 +31,6 @@
           <h2 class="hide">修改歌曲</h2>
         </div>
         <form class="form-wrapper" action="">
-          <div class="image">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-yinyue"></use>
-            </svg>
-            <div class="describe">COVER UPLOAD</div>
-          </div>
-          <div class="songDes">
-            <label for="">歌名<input type="text" name="name"></label>
-            <label for="">歌手<input type="text" name="singer"></label>
-            <label for="">外链<input type="text" name="songUrl"></label>
-          </div>
-          <textarea name="lyric" id="" cols="30" rows="10" placeholder="歌词"></textarea>
         </form>
       </div>
     </main>
@@ -56,5 +44,7 @@
   <script src="./js/initializers/av.js"></script>
   <script src="./js/initializers/eventHub.js"></script>
   <script src="./js/admin/upload.js"></script>
+  <script src="./js/admin/form-message.js"></script>
+  <script src="./js/admin/new-song.js"></script>
 </body>
 </html>
