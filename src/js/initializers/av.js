@@ -14,6 +14,7 @@ AV.init({
 // song.set('songUrl', '外链');
 // song.set('coverUrl', '图片');
 // song.set('lyric', '歌词');
+// song.set('songId', '歌曲ID');
 // song.save().then(function (todo) {
 //   // 成功保存之后，执行其他逻辑.
 //   console.log('New object created with objectId: ' + todo.id);

@@ -22,7 +22,15 @@
       this.view.init()
       this.model = model
       this.view.render(this.model.data)
+      this.bindEvents()
       this.bindEventHub()
+    },
+    bindEvents() {
+      this.view.$el.on('click', (e) => {
+        e.preventDefault()
+        this.view.isActive()
+        window.eventHub.trigger('selectSong', false)
+      })
     },
     bindEventHub() {
       window.eventHub.on('newSongActive', (bol) => {
