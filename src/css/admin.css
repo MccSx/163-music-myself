@@ -49,9 +49,10 @@ main .form-wrapper {
 main .form-wrapper .form {
   display: flex; flex-direction: row;}
 main .form-wrapper .image {
-  width: 20%; height: 0; padding-bottom: 20%; background: #A8D1DA; border-radius: 10px; position: relative;}
-main .form-wrapper .image svg {
+  width: 20%; height: 0; padding-bottom: 20%; background: #A8D1DA; border-radius: 10px; position: relative; background-size: cover;}
+main .form-wrapper .image .icon {
   width: 6vw; height: 6vw; fill: white; display: block; position: absolute; left: 50%; top: 50%; margin-left: -3vw; margin-top: -3vw;}
+main .form-wrapper .image .icon.hide{visibility: hidden;}
 main .form-wrapper .image>.describe{
   position: absolute; bottom: 0; width: 100%; height: 20%; background: black; opacity: 0.5; color: white; font-weight: 700; 
   text-align: center; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;}

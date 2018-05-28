@@ -30,7 +30,7 @@
       var query = new AV.Query('Song');
       return query.find().then( (songs) => {
         this.data.songs = songs.map((song) => {
-          return {songId: song.songId, ...song.attributes}
+          return {songId: song.id, ...song.attributes}
         })
       })
     },
@@ -63,11 +63,17 @@
     bindEventHub() {
       window.eventHub.on('create', (data) => {
         this.model.create(data)
+        
         this.view.render(this.model.data)
       })
       window.eventHub.on('update', (data) => {
         this.model.update(data)
         this.view.render(this.model.data)
+      })
+      window.eventHub.on('selectSong', (bol) => {
+        if (!bol) {
+          this.view.$el.find('li').removeClass('active')
+        }
       })
     },
     bindEvents() {

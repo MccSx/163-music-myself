@@ -30,6 +30,7 @@
         e.preventDefault()
         this.view.isActive()
         window.eventHub.trigger('selectSong', false)
+        
       })
     },
     bindEventHub() {

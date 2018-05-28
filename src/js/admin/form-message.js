@@ -3,8 +3,8 @@
     el: '.form-wrapper',
     template: `
       <div class="form">
-        <div class="image">
-          <svg class="icon" aria-hidden="true">
+        <div class="image" style="background-image: url({{coverUrl})">
+          <svg class="icon {{hide}}" aria-hidden="true">
             <use xlink:href="#icon-yinyue"></use>
           </svg>
           <div class="describe">COVER UPLOAD</div>
@@ -24,27 +24,33 @@
     },
     render(data={}) {
       let tempArr = ['name','singer','songUrl','coverUrl','lyric']
-      let newTemplaye = this.template
+      let newTemplate = this.template
+      if (data.songId && data.coverUrl) {
+        newTemplate = newTemplate.replace('{{hide}}', 'hide')
+      } else {
+        newTemplate = newTemplate.replace('{{hide}}', '')
+      }
       tempArr.map((value) => {
-        newTemplaye = newTemplaye.replace(`__${value}__`, data[value] || '')
+        newTemplate = newTemplate.replace(`__${value}__`, data[value] || '')
       })
-      this.$el.html(newTemplaye)
+      newTemplate = newTemplate.replace(`{{coverUrl}`, data.coverUrl || '')
+      this.$el.html(newTemplate)
     }
   }
   let model = {
     data:{name:'', singer:'', songUrl:'',coverUrl:'', lyric:'', songId:''},
     setData(data) {
-      Object.assign(this.data, data)
+      this.data = data
     },
     update(data) {
-      let song = AV.Object.createWithoutData('Song', data.songId)
+      let song = AV.Object.createWithoutData('Song', this.data.songId)
       // 修改属性
-      song.set('name', data,name)
+      song.set('name', data.name)
       song.set('singer', data.singer)
       song.set('songUrl', data.songUrl)
       song.set('coverUrl', data.coverUrl)
       song.set('lyric', data.lyric)
-      song.set('songId', data.songId)
+      //song.set('songId', data.songId)
       // 保存到云端
       return song.save().then((response) => {
         Object.assign(this.data, data)
@@ -84,10 +90,15 @@
         this.model.setData(data)
         this.view.render(this.model.data)
       })
+      window.eventHub.on('selectSong', (bol) => {
+        if (!bol) {
+          this.view.render({})
+        }
+      })
     },
     update() {
-      let tempArr = ['name','singer','songUrl','coverUrl','lyric','songId']
-      let tempData = {}
+      let tempArr = ['name','singer','songUrl','coverUrl','lyric']
+      let tempData = {songId: this.model.data.songId}
       tempArr.map((value) => {
         tempData[value] = this.view.$el.find(`[name=${value}]`).val()
       })
@@ -97,13 +108,14 @@
       })
     },
     create() {
-      let tempArr = ['name','singer','songUrl','coverUrl','lyric','songId']
-      let tempData = {}
+      let tempArr = ['name','singer','songUrl','coverUrl','lyric']
+      let tempData = {songId: this.model.data.songId}
       tempArr.map((value) => {
         tempData[value] = this.view.$el.find(`[name=${value}]`).val()
       })
       this.model.create(tempData).then(() => {
         this.view.render({})
+        console.log(this.model.data)
         window.eventHub.trigger('create', JSON.parse(JSON.stringify(this.model.data)))
       })
     },
