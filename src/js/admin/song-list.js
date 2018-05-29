@@ -63,7 +63,7 @@
     bindEventHub() {
       window.eventHub.on('create', (data) => {
         this.model.create(data)
-        
+        this.model.data.selectSongID = data.songId
         this.view.render(this.model.data)
       })
       window.eventHub.on('update', (data) => {
