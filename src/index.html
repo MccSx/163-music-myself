@@ -18,9 +18,9 @@
       </section>
       <section class="globalTabs">
         <ul>
-          <li class="active"><span>推荐音乐</span></li>
-          <li><span>热歌榜</span></li>
-          <li><span>搜索</span></li>
+          <li class="active" data-sign="page-1"><span>推荐音乐</span></li>
+          <li data-sign="page-2"><span>热歌榜</span></li>
+          <li data-sign="page-3"><span>搜索</span></li>
         </ul>
       </section>
     </div>
@@ -105,35 +105,38 @@
         </section>
         <section class="songs">
           <h2><span>最新音乐</span></h2>
+          <div class="loading-wrapper">
+            <div class="loading">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                <rect x="0" y="13" width="4" height="5" fill="#333">
+                  <animate attributeName="height" attributeType="XML"
+                    values="5;21;5" 
+                    begin="0s" dur="0.6s" repeatCount="indefinite" />
+                  <animate attributeName="y" attributeType="XML"
+                    values="13; 5; 13"
+                    begin="0s" dur="0.6s" repeatCount="indefinite" />
+                </rect>
+                <rect x="10" y="13" width="4" height="5" fill="#333">
+                  <animate attributeName="height" attributeType="XML"
+                    values="5;21;5" 
+                    begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+                  <animate attributeName="y" attributeType="XML"
+                    values="13; 5; 13"
+                    begin="0.15s" dur="0.6s" repeatCount="indefinite" />
+                </rect>
+                <rect x="20" y="13" width="4" height="5" fill="#333">
+                  <animate attributeName="height" attributeType="XML"
+                    values="5;21;5" 
+                    begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+                  <animate attributeName="y" attributeType="XML"
+                    values="13; 5; 13"
+                    begin="0.3s" dur="0.6s" repeatCount="indefinite" />
+                </rect>
+              </svg>
+            </div>
+          </div>
           <ol class="songList">
-            <li>
-              <div class="song">
-                <h4>歌名</h4>
-                <div class="desc">
-                  <img src="./img/icon.png" alt="">
-                  <p>歌手 - 歌名</p>
-                </div>
-              </div>
-              <div class="play">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#icon-bofang"></use>
-                </svg>
-              </div>
-            </li>
-            <li>
-              <div class="song">
-                <h4>歌名</h4>
-                <div class="desc">
-                  <img src="./img/icon.png" alt="">
-                  <p>歌手 - 歌名</p>
-                </div>
-              </div>
-              <div class="play">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#icon-bofang"></use>
-                </svg>
-              </div>
-            </li>
           </ol>
         </section>
         <section class="art">
@@ -153,5 +156,13 @@
     </ol>
   </div>
   <script src="//at.alicdn.com/t/font_673848_wqo7l2pabemw8kt9.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+  <script src="./js/initializers/av.js"></script>
+  <script src="./js/initializers/eventHub.js"></script>
+  <script src="./js/index/tab.js"></script>
+  <script src="./js/index/page-1.js"></script>
+  <script src="./js/index/page-2.js"></script>
+  <script src="./js/index/page-3.js"></script>
 </body>
 </html>
