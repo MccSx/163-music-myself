@@ -1,0 +1,31 @@
+.page{position: relative; display: flex; flex-direction: column; height: 100vh;}
+.logo{position: absolute; z-index: 1; top: 10px; left: 2vw; width: 26vw;}
+.bg-img{background-image: url(../img/5.jpg); position: absolute; background-size: cover; width: 100vw; height: 100vh; 
+  z-index: -1; filter: blur(5px);}
+
+/* .disc-wrapper{position: relative;} */
+.disc-wrapper .neddle{position: absolute; width: 24vw; left: 45vw;}
+.disc-wrapper .disc{display: flex; justify-content: center; align-items: center; padding-top: 18vw;}
+.disc-wrapper .icon-wrapper{position: absolute; width: 44.5vw; height: 44.5vw; display: flex; justify-content: center; 
+  align-items: center; z-index: 1;}
+.disc-wrapper .icon-wrapper>div{width: 40%; height: 40%; display: none; border-radius: 50%; border: 1px solid white; 
+  position: relative;}
+.disc-wrapper .icon-wrapper>div .icon{width: 60%; height: 60%; position: absolute; top: 50%; left: 50%; margin-top: -5.4vw; margin-left: -4.6vw;}
+.disc-wrapper .icon-wrapper>div.active{display: block;}
+.disc-wrapper .ring{width: 72vw;}
+.disc-wrapper .light{width: 72vw; position: absolute;}
+.disc-wrapper .cover{position: absolute; width: 44.5vw; border-radius: 50%; animation: turn 20s infinite linear; animation-play-state: running;}
+.disc-wrapper .cover.paused{animation-play-state: paused;}
+
+.song-desc{color: white; text-align: center; line-height: 2; flex-grow: 1; margin-top: 20px;}
+.song-desc .lyric-wrapper{height: 96px; overflow: hidden;}
+
+.song-link{margin-bottom: 10px; display: flex; justify-content: center;}
+.song-link a{width: 44vw; height: 40px; border-radius: 10vw; text-align: center; line-height: 40px; font-size: 18px;}
+.song-link .open{color: #D43C33; border: 1px solid #D43C33;}
+.song-link .load{color: white; background: #D43C33; margin-left: 4vw;}
+
+@keyframes turn{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+}

@@ -7,11 +7,18 @@
     render(data={}) {
       let {song} = data
       this.$el.find('audio').attr('src', song.songUrl)
+    },
+    audioPlay() {
+      this.$el.find('audio')[0].play()
+    },
+    audioPause() {
+      this.$el.find('audio')[0].pause()
     }
   }
   let model = {
     data: {
-      song:{songId:'', name:'', singer:'', songUrl:'', coverUrl:'', lyric:''}
+      song:{songId:'', name:'', singer:'', songUrl:'', coverUrl:'', lyric:''},
+      paused: false
     },
     getSong(id) {
       var query = new AV.Query('Song')
@@ -36,7 +43,9 @@
       let songId = this.getSongId()
       this.model.getSong(songId).then(() => {
         this.view.render(this.model.data)
+        this.view.audioPlay()
       })
+      this.bindEvents()
     },
     getSongId() {
       let search = window.location.search
@@ -54,6 +63,20 @@
         }
       }
       return searchID
+    },
+    bindEvents() {
+      this.view.$el.find('.disc-wrapper').on('click', '.icon-wrapper', (e) => {
+        this.model.data.paused = !(this.model.data.paused)
+        if (this.model.data.paused) {
+          this.view.audioPause()
+          $(e.currentTarget).find('div').addClass('active')
+          $(e.currentTarget).siblings('.cover').addClass('paused')
+        } else {
+          this.view.audioPlay()
+          $(e.currentTarget).find('div').removeClass('active')
+          $(e.currentTarget).siblings('.cover').removeClass('paused')          
+        }
+      })
     }
   }
   controller.init(view, model)
