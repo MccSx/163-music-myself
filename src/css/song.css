@@ -1,7 +1,8 @@
 .page{position: relative; display: flex; flex-direction: column; height: 100vh;}
 .logo{position: absolute; z-index: 1; top: 10px; left: 2vw; width: 26vw;}
-.bg-img{background-image: url(../img/5.jpg); position: absolute; background-size: cover; width: 100vw; height: 100vh; 
-  z-index: -1; filter: blur(5px);}
+.bg-img{position: absolute; background-size: cover; background-position: center; width: 100vw; height: 100vh; 
+  z-index: -1; filter: blur(10px);}
+.bg-img::after{content: ''; width: 100%; height: 100%; background: black;opacity: 0.5; position: absolute; top: 0; left: 0;}
 
 /* .disc-wrapper{position: relative;} */
 .disc-wrapper .neddle{position: absolute; width: 24vw; left: 45vw;}
@@ -19,6 +20,8 @@
 
 .song-desc{color: white; text-align: center; line-height: 2; flex-grow: 1; margin-top: 20px;}
 .song-desc .lyric-wrapper{height: 96px; overflow: hidden;}
+.song-desc .lyric-wrapper p{color: #86898A;}
+.song-desc .lyric-wrapper p.active{color: white;}
 
 .song-link{margin-bottom: 10px; display: flex; justify-content: center;}
 .song-link a{width: 44vw; height: 40px; border-radius: 10vw; text-align: center; line-height: 40px; font-size: 18px;}
