@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <title>管理页面</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body>
+  <div class="playlistForm-wrapper">
+    <form action="" class="playlstForm">
+      <div class="row">
+        <label for="">歌单名<input type="text" name="name"></label>
+      </div>
+      <div class="row">
+        <label for="">简介<textarea type="text" name="summary"></textarea>
+      </div>
+      <button type="submit">提交</button>
+    </form>
+  </div>
+
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+  <script src="./js/initializers/av.js"></script>
+  <script src="./js/initializers/eventHub.js"></script>
+  <script>
+    let view = {
+      el: '.playlistForm-wrapper',
+      init() {
+        this.$el = $(this.el)
+      }
+    }
+    let model = {
+      create() {
+        let PlayList = AV.Object.extend('PlayList')
+        // 新建一个 Todo 对象
+        let playList = new PlayList()
+        playList.set('name', '测试标题')
+        playList.set('summary', '测试简介')
+        playList.save().then((newPlaylist) => {
+          console.log(newPlaylist)
+        })
+      }
+    }
+    let controller = {
+      init(view, model) {
+        this.view = view
+        this.view.init()
+        this.model = model
+        this.bindEvents()
+      },
+      bindEvents() {
+        this.view.$el.on('submit', 'form', (e) => {
+          e.preventDefault()
+          let formTag = this.view.$el.find('form').get(0)
+          let keys = ['name', 'summary']
+          let data = {}
+          keys.reduce((prev, item) => {
+            prev[item] = formTag[item].value.trim()
+            return prev
+          }, data)
+          console.log(data)
+        })
+      }
+    }
+    controller.init(view, model)
+    
+  </script>
+</body>
+</html>
