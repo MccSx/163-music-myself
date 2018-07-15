@@ -8,6 +8,7 @@ window.eventHub = {
       })
     }
   },
+  
   //订阅
   on(eventName, fn) {
     if (this.events[eventName] === undefined) {
